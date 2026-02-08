@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="hi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aadhaar/PAN Print Helper</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <p class="eyebrow">Card Print Utility</p>
+        <h1>Aadhaar / PAN Card Print Software</h1>
+        <p class="subtitle">
+          PDF upload karein. Agar password lagega to system aapko enter karne ko kahega.
+          Password na hone par PDF automatic open ho jayega.
+        </p>
+      </header>
+
+      <section class="card">
+        <label class="upload" for="pdfInput">
+          <span>PDF file choose karein</span>
+          <input id="pdfInput" type="file" accept="application/pdf" />
+        </label>
+        <div class="status" id="status">Abhi koi PDF select nahi hua hai.</div>
+
+        <div class="password" id="passwordSection" hidden>
+          <label for="pdfPassword">PDF Password</label>
+          <div class="password-row">
+            <input id="pdfPassword" type="password" placeholder="Password enter karein" />
+            <button id="passwordSubmit" type="button">Unlock</button>
+          </div>
+          <div class="hint">Password correct hote hi PDF open ho jayega.</div>
+        </div>
+
+        <div class="card-type" id="cardTypeSection" hidden>
+          <p>Card type select karein:</p>
+          <div class="button-row">
+            <button class="type-button" data-type="Aadhaar">Aadhaar Card</button>
+            <button class="type-button" data-type="PAN">PAN Card</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="preview" id="preview" hidden>
+        <div class="preview-header">
+          <h2>Preview</h2>
+          <span class="badge" id="selectedType">Card type: --</span>
+        </div>
+        <canvas id="pdfCanvas"></canvas>
+      </section>
+    </main>
+  </body>
+</html>
